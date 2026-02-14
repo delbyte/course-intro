@@ -35,6 +35,7 @@ export function HeroSlide() {
     return (
         <Slide isActive={true} className="text-left">
             <div className="flex flex-col items-start justify-center h-full max-w-7xl mx-auto w-full">
+                {/* Tag removed as per user edit history, keeping it clean */}
 
                 <h1 className="text-6xl md:text-8xl lg:text-9xl font-medium tracking-tighter text-white mb-8 leading-[0.9]">
                     How to make<br /> a lot of money
@@ -50,24 +51,59 @@ export function HeroSlide() {
 
                 <div className="flex flex-col sm:flex-row gap-6">
                     <button
-                        onClick={() => goToSlide(2)} // Jump to Curriculum (Phase 1)
+                        onClick={() => goToSlide(2)} // Jump to Curriculum (Phase 1) - Note: Indexes shift if Manifesto is added at index 1
                         className="inline-flex items-center justify-center px-10 py-4 text-lg font-medium text-white bg-white/10 hover:bg-white/15 border border-white/10 rounded-full transition-all group"
                     >
                         Start The Protocol
                         <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                     </button>
                     <button
-                        onClick={() => goToSlide(1)} // Jump to Philosophy
+                        onClick={() => goToSlide(1)} // Jump to Manifesto
                         className="inline-flex items-center justify-center px-10 py-4 text-lg font-medium text-neutral-400 hover:text-white transition-colors"
                     >
                         Read Manifesto
                     </button>
                 </div>
             </div>
-            {/* Abstract Background Element */}
-            <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[1000px] h-[1000px] bg-[#5E6AD2] rounded-full blur-[160px] opacity-[0.06] pointer-events-none" />
         </Slide>
     );
+}
+
+export function ManifestoSlide() {
+    return (
+        <Slide isActive={true}>
+            <SlideContent>
+                <div className="max-w-4xl mx-auto text-center">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-500/20 bg-red-500/10 text-sm font-medium text-red-400 mb-12">
+                        <Terminal className="w-4 h-4" />
+                        System Warning: 99% Failure Rate
+                    </div>
+                    <h2 className="text-5xl md:text-7xl font-medium text-white mb-12 tracking-tight leading-tight">
+                        You are not &quot;just learning to code&quot;.<br />
+                        <span className="text-[#5E6AD2]">You are escaping velocity.</span>
+                    </h2>
+                    <div className="space-y-8 text-xl md:text-2xl text-neutral-400 font-light leading-relaxed">
+                        <p>
+                            The &quot;average&quot; developer is a commodity. They paste from ChatGPT. They complain about the market. They wait for permission.
+                        </p>
+                        <p>
+                            <span className="text-white font-medium">The Outlier</span> builds systems. The Outlier ships while others are sleeping. The Outlier knows that the market doesn&apos;t care about your feelings, only your <span className="text-white font-medium">value</span>.
+                        </p>
+                        <p>
+                            This isn&apos;t a bootcamp. This is a <span className="text-white font-medium">crucible</span>.
+                            We strip away the noise. We focus on the Metal. We build things that scare us.
+                        </p>
+                    </div>
+
+                    <div className="mt-16 p-8 border-t border-white/5">
+                        <p className="text-lg text-neutral-500 font-mono">
+                            &quot;The only way to win is to be so good they can&apos;t ignore you.&quot;
+                        </p>
+                    </div>
+                </div>
+            </SlideContent>
+        </Slide>
+    )
 }
 
 export function PhilosophySlide() {

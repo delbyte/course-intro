@@ -15,6 +15,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#08090A]">
       <Presentation>
         <HeroSlide />
+        <ManifestoSlide />
         <PhilosophySlide />
         <Phase1Slide />
         <Phase2Slide />
