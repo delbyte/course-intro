@@ -7,38 +7,36 @@ export default async function BusinessPage() {
   const posts = await getAllBusinessPosts();
 
   return (
-    <div className="space-y-10">
-      <section className="rounded-3xl border border-[var(--biz-border)] bg-[var(--biz-surface)] p-6 shadow-lg shadow-black/5 sm:p-10">
-        <p className="mb-3 inline-flex rounded-full bg-[var(--biz-chip)] px-3 py-1 text-xs font-semibold tracking-wide text-[var(--biz-chip-text)] uppercase">
-          Business Blog
-        </p>
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">Build Better Business Intuition</h1>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[var(--biz-text-muted)] sm:text-lg">
-          Three detailed writeups on startup paths, software business models, and a real-world case study of Palantir.
+    <div className="space-y-8">
+      <section className="space-y-3 border-b border-[var(--biz-border)] pb-6">
+        <p className="text-xs font-medium tracking-[0.18em] text-[var(--biz-text-muted)] uppercase">Blog</p>
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-[2.75rem]">Business Notes</h1>
+        <p className="max-w-2xl text-base leading-7 text-[var(--biz-text-muted)] sm:text-lg">
+          Curated essays on startup choices, business models, and operator-level case studies.
         </p>
       </section>
 
-      <section className="grid gap-6 md:grid-cols-3">
+      <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {posts.map((post) => (
-          <article key={post.slug} className="group overflow-hidden rounded-2xl border border-[var(--biz-border)] bg-[var(--biz-surface)]">
-            <div className="relative h-48 w-full overflow-hidden">
+          <article key={post.slug} className="group overflow-hidden rounded-2xl border border-[var(--biz-border)] bg-[var(--biz-surface)] transition hover:border-[var(--biz-text-muted)]/50">
+            <div className="relative h-52 w-full overflow-hidden border-b border-[var(--biz-border)]">
               <Image
                 src={post.coverImage}
                 alt={post.title}
                 fill
-                className="object-cover transition duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition duration-500 group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
               />
             </div>
-            <div className="space-y-4 p-5">
-              <p className="text-xs font-semibold tracking-wider text-[var(--biz-chip-text)] uppercase">{post.accent}</p>
-              <h2 className="text-xl font-semibold leading-tight">{post.title}</h2>
-              <p className="line-clamp-3 text-sm leading-6 text-[var(--biz-text-muted)]">{post.subtitle}</p>
+            <div className="space-y-4 p-5 sm:p-6">
+              <p className="text-xs font-medium tracking-[0.14em] text-[var(--biz-text-muted)] uppercase">{post.category}</p>
+              <h2 className="text-[1.55rem] font-semibold leading-tight tracking-tight">{post.title}</h2>
+              <p className="line-clamp-3 text-[0.98rem] leading-6 text-[var(--biz-text-muted)]">{post.subtitle}</p>
               <div className="flex items-center justify-between">
                 <span className="text-xs text-[var(--biz-text-muted)]">{post.readMinutes} min read</span>
                 <Link
                   href={`/business/${post.slug}`}
-                  className="inline-flex items-center gap-1 text-sm font-medium text-[var(--biz-chip-text)] transition group-hover:gap-2"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-[var(--biz-text)] transition group-hover:gap-2"
                 >
                   Read
                   <ArrowRight size={16} />
