@@ -35,40 +35,38 @@ export function BusinessShell({ children }: BusinessShellProps) {
   const vars = useMemo(() => {
     if (theme === "dark") {
       return {
-        "--biz-bg": "#090d1a",
-        "--biz-bg-soft": "#11172a",
-        "--biz-surface": "rgba(17, 23, 42, 0.72)",
-        "--biz-border": "rgba(148, 163, 184, 0.24)",
-        "--biz-text": "#e7ecff",
-        "--biz-text-muted": "#b7c1df",
-        "--biz-chip": "rgba(56, 189, 248, 0.2)",
-        "--biz-chip-text": "#99f6e4",
+        "--biz-bg": "#0f1115",
+        "--biz-bg-soft": "#171a20",
+        "--biz-surface": "#16191f",
+        "--biz-border": "#2a2f38",
+        "--biz-text": "#f3f4f6",
+        "--biz-text-muted": "#9ca3af",
+        "--biz-chip": "#22262e",
+        "--biz-chip-text": "#d1d5db",
       } as React.CSSProperties;
     }
 
     return {
-      "--biz-bg": "#f6f8fc",
-      "--biz-bg-soft": "#edf2ff",
-      "--biz-surface": "rgba(255, 255, 255, 0.86)",
-      "--biz-border": "rgba(30, 41, 59, 0.16)",
-      "--biz-text": "#0f172a",
-      "--biz-text-muted": "#334155",
-      "--biz-chip": "rgba(37, 99, 235, 0.1)",
-      "--biz-chip-text": "#1d4ed8",
+      "--biz-bg": "#f7f7f5",
+      "--biz-bg-soft": "#efefec",
+      "--biz-surface": "#ffffff",
+      "--biz-border": "#e1e1db",
+      "--biz-text": "#161616",
+      "--biz-text-muted": "#5f6368",
+      "--biz-chip": "#f1f1ee",
+      "--biz-chip-text": "#33383f",
     } as React.CSSProperties;
   }, [theme]);
 
   return (
-    <div style={vars} className="min-h-screen bg-[var(--biz-bg)] text-[var(--biz-text)] transition-colors duration-300">
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -top-32 -left-20 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
-        <div className="absolute right-0 top-1/3 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl" />
-      </div>
-
-      <header className="sticky top-0 z-20 border-b border-[var(--biz-border)] bg-[var(--biz-surface)]/90 backdrop-blur-xl">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+    <div
+      style={{ ...vars, fontFamily: "Satoshi-Variable, 'Geist Sans', sans-serif" }}
+      className="min-h-screen bg-[var(--biz-bg)] text-[var(--biz-text)] transition-colors duration-300"
+    >
+      <header className="sticky top-0 z-20 border-b border-[var(--biz-border)] bg-[var(--biz-bg)]/96 backdrop-blur-md">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-8">
           <Link href="/business" className="text-sm font-semibold tracking-[0.2em] text-[var(--biz-text-muted)] uppercase">
-            Business Notes
+            Blog
           </Link>
 
           <div className="flex items-center gap-3">
@@ -78,7 +76,7 @@ export function BusinessShell({ children }: BusinessShellProps) {
             <button
               type="button"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--biz-border)] bg-[var(--biz-bg-soft)] px-3 py-1.5 text-sm text-[var(--biz-text)]"
+              className="inline-flex items-center gap-2 rounded-lg border border-[var(--biz-border)] bg-[var(--biz-bg-soft)] px-3 py-1.5 text-sm text-[var(--biz-text)]"
               aria-label="Toggle light and dark mode"
             >
               {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
@@ -88,7 +86,7 @@ export function BusinessShell({ children }: BusinessShellProps) {
         </div>
       </header>
 
-      <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">{children}</main>
+      <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12">{children}</main>
     </div>
   );
 }
