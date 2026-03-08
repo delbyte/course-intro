@@ -55,7 +55,7 @@ export default async function BusinessPostPage({ params }: BusinessPostPageProps
         </div>
       </header>
 
-      <section className="rounded-3xl border border-[var(--biz-border)] bg-[var(--biz-surface)] p-6 sm:p-10">
+      <section className="rounded-3xl border border-[var(--biz-border)] bg-[var(--biz-surface)] px-5 py-7 sm:px-10 sm:py-11 lg:px-14">
         <MarkdownArticle content={post.content} />
       </section>
     </div>
