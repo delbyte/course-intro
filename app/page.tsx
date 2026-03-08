@@ -2,6 +2,7 @@
 import { Presentation } from "@/components/PresentationMode";
 import {
   HeroSlide,
+  ManifestoSlide,
   PhilosophySlide,
   Phase1Slide,
   Phase2Slide,
