@@ -4,14 +4,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { BusinessPostBody, BusinessPostFooter } from "@/components/business/BusinessPostBodies";
-import { BUSINESS_POSTS, getBusinessPost } from "@/lib/business-content";
+import { getBusinessPost, getBusinessSlugs } from "@/lib/business-content";
 
 type BusinessPostPageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  return BUSINESS_POSTS.map((post) => ({ slug: post.slug }));
+  return getBusinessSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: BusinessPostPageProps): Promise<Metadata> {
